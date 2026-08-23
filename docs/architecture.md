@@ -39,3 +39,5 @@ flowchart LR
 ```
 
 Die Verarbeitung ist at-least-once. Der Order Worker besitzt in diesem Block nur einen lokalen Idempotenzspeicher. Ein Pod-Neustart zeigt deshalb bewusst die noch offene Persistenzlücke.
+
+RabbitMQ 4.3.5 laeuft im lokalen Kurscluster als einzelnes StatefulSet mit einem 1-GiB-PVC. Durable Queues und persistente Nachrichten koennen damit einen Container- oder Broker-Neustart ueberstehen. Der einzelne Broker bleibt trotzdem ein Single Point of Failure; echte Broker-HA mit Quorum Queues benoetigt mehrere RabbitMQ-Nodes und ist nicht Teil des Laptop-Labs.
